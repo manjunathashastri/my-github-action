@@ -109,6 +109,9 @@ jobs:
       with:
         name: app-jar
         path: app 
+    - name: Confirm JAR exists
+      run: ls -lh app/
+
     - name: Display structure of downloaded files
       run: ls -R
     - name: Login to Docker Hub
@@ -123,7 +126,10 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-          push: true
-          tags: manjunathashastriv/bankapp:latest
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: manjunathashastriv/bankapp:latest
+
     
 
