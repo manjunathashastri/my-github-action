@@ -22,7 +22,7 @@ jobs:
     - name: Build with Maven
       run: mvn compile
   security-checks:
-
+    needs: compile
     runs-on: ubuntu-latest
 
     steps:
